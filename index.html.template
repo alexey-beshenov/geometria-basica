@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Un repaso de geometría</title>
+
+    <link rel="stylesheet" href="basic.css" />
+    <script src="show-hide.js" type="text/javascript"></script>
+
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+		 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                     processEscapes: true },
+          "HTML-CSS": { availableFonts: ["TeX"],
+			linebreaks: { automatic: true } }
+      });
+    </script>
+  </head>
+
+  <body onload="init()">
+    <h1>Un repaso de geometría</h1>
+
+    <div id="intro">
+      <p>¡Bienvenido al <em>quiz</em> de geometría!</p>
+
+      <p>Trata de recordar los enunciados y pruebas de los teoremas
+	representados por los dibujos.</p>
+
+      <p>Dale click en la columna derecha para comprobar tu respuesta.</p>
+    </div>
+
+    <h2>Área de triángulo</h2>
+
+    <div class="statement">
+      <p>¿Cómo expresar el área de un triángulo en términos de...</p>
+      <ul>
+	<li>...lados $b$ y $c$ y el ángulo $\alpha$?</li>
+	<li>...lados $a$, $b$, $c$?</li>
+      </ul>
+
+      <!-- geogebra:rrfkyqtq -->
+    </div>
+
+    <div class="answer">
+      <div class="hidden">
+	<p>En términos de $b$, $c$ y $\alpha$, se tiene
+	  $$A = \frac{1}{2} bc \operatorname{sen}\alpha.$$</p>
+
+	<p>En términos de $a$, $b$, $c$, la respuesta viene dada por la
+	  <a href="https://es.wikipedia.org/wiki/F%C3%B3rmula_de_Her%C3%B3n">fórmula de Heron</a>:
+	  $$A = \sqrt{s\,(s-a)\,(s-b)\,(s-c)},$$
+	  donde $s = \frac{a+b+c}{2}$ es el semiperímetro.</p>
+      </div>
+    </div>
+
+    <h2>Área de un $n$-ágono regular</h2>
+
+    <div class="statement">
+      <p>Deduzca la fórmula para el área de un $n$-ágono regular de radio
+	$r$.</p>
+
+      <!-- geogebra:myfjveys -->
+      </div>
+
+    <div class="answer">
+      <div class="hidden">
+	<p>$$A = \frac{1}{2}\,r^2\,n\,\operatorname{sen} \left(\frac{2\pi}{n}\right).$$</p>
+      </div>
+    </div>
+      
+    <h2>Área de un cuadrilátero convexo</h2>
+
+    <div class="statement">
+      <p>Sea $ABCD$ un cuadrilátero convexo, $d_1 = |AC|$, $d_2 = |BD|$ son sus
+	dos diagonales, y $\alpha$ el ángulo entre ellos. Exprese el área en
+	términos de $d_1$, $d_2$, $\alpha$.</p>
+
+      <!-- geogebra:yfe7vtzq -->
+    </div>
+
+    <div class="answer">
+      <div class="hidden">
+	<p>$$S = \frac{1}{2}\,d_1 d_2\operatorname{sen} (\alpha).$$</p>
+      </div>
+    </div>
+
+    <h2>Recta de Euler</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+
+      <!-- geogebra:qbp76vun -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>La <a href="https://es.wikipedia.org/wiki/Recta_de_Euler">recta de
+	    Euler</a> pasa por</p>
+	<ul>
+	  <li>el ortocentro $H$ (intersección de las alturas),</li>
+	  <li>el centroide $M$ (intersección de las medianas),</li>
+	  <li>el circuncentro $O$ (intersección de las mediatrices).</li>
+	</ul>
+      </div>
+    </div>
+
+    <h2>Circunferencia de los nueve puntos</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+
+      <!-- geogebra:hn6gdect -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>La <a href="https://es.wikipedia.org/wiki/Circunferencia_de_los_nueve_puntos">circunferencia
+	    de los nueve puntos</a> pasa por</p>
+	<ul>
+	  <li>los puntos medios,</li>
+	  <li>los pies de las alturas,</li>
+	  <li>los puntos medios de los segmentos que unen los vértices con el
+	    ortocentro.</li>
+	</ul>
+
+	<p>El centro de esta circunferencia también está en la recta de
+	  Euler.</p>
+      </div>
+    </div>
+
+    <h2>Teorema de Ceva</h2>
+
+    <div class="statement">
+      <p>En el siguiente dibujo, $AA'$, $BB'$, $CC'$ pasan por el mismo
+	punto $O$.</p>
+
+      <p>¿Qué se puede decir sobre las razones $BA' : A'C$, $CB' : B'A$,
+	$AC' : C'B$?</p>
+
+      <!-- geogebra:pbrjszyj -->
+    </div>
+
+    <div class="answer"><div class="hidden"> Según el
+	<a href="https://es.wikipedia.org/wiki/Teorema_de_Ceva">teorema de
+	  Ceva</a>, esto sucede si y solamente si
+	$$\frac{BA'}{A'C}\,\frac{CB'}{B'A}\,\frac{AC'}{C'B} = 1.$$
+      </div>
+    </div>
+
+    <div class="statement">
+      <h2>Teorema de Menelao</h2>
+
+      <p>En el siguiente dibujo, ¿qué se puede decir sobre las razones
+	$AB' : B'C$, $CA' : A'B$, $BC' : C'A$?</p>
+
+      <!-- geogebra:bdnctdvj -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>Según el
+	  <a href="https://es.wikipedia.org/wiki/Teorema_de_Menelao">teorema de
+	    Menelao</a>,
+	  $$\frac{AB'}{B'C}\,\frac{CA'}{A'B}\,\frac{BC'}{C'A} = -1.$$</p>
+
+	<p>La relación correspondiente entre los ángulos es
+	    $$\frac{\operatorname{sen}\angle BAA'}{\operatorname{sen}\angle A'AC}\,\frac{\operatorname{sen}\angle CBB'}{\operatorname{sen}\angle B'BA}\,\frac{\operatorname{sen}\angle ACC'}{\operatorname{sen}\angle C'CB} = -1.$$
+	</div>
+    </div>
+
+    <h2>Teorema del hexágono de Pappus</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+
+      <!-- geogebra:n4h2je78 -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>$(A,B,C)$ y $(A',B',C')$ son colineales.</p>
+
+	<p>El <a href="https://es.wikipedia.org/wiki/Teorema_del_hex%C3%A1gono_de_Pappus">teorema
+	    de Pappus</a> dice que las intersecciones $D$, $E$, $F$ son también
+	    colineales.</p>
+      </div>
+    </div>
+
+    <h2>Teorema de Pascal (Hexagrammum Mysticum)</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+
+      <!-- geogebra:uzbzbnkx -->
+    </div>
+
+    <div class="answer">
+      <div class="hidden">
+	<p>Los seis puntos $A$, $B$, $C$, $D$, $E$, $F$ se escogen sobre una
+	  circunferencia (o en general elipse, o parábola u hipérbola).</p>
+
+	<p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Pascal">teorema
+	    de Pascal</a> afirma que los puntos de intersección $G$, $H$, $K$
+	  del dibujo son siempre colineales.</p>
+      </div>
+    </div>
+
+    <h2>Teorema de Desargues</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+	  
+      <!-- geogebra:f2nm93cx -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>Los triángulos $ABC$ y $A'B'C'$ son «proyectivos desde el punto
+	  $P$»: las rectas $AA'$, $BB'$ y $CC'$ concurren en $P$.</p>
+
+	<p>Son también «proyectivos desde la recta $r$»: las intersecciones de
+	  los lados $AB\cap A'B'$, $AC\cap A'C'$, $BC\cap B'C'$ están en
+	  $r$.</p>
+
+	<p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Desargues">teorema
+	    de Desargues</a> dice que las dos condiciones son
+	  equivalentes.</p>
+      </div>
+    </div>
+
+    <h2>Línea de Simson</h2>
+
+    <div class="statement">
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+
+      <!-- geogebra:fpqvppq5 -->
+    </div>
+
+    <div class="answer"><div class="hidden">
+	<p>Si desde un punto $P$ se trazan perpendiculares a los lados de un
+	  triángulo o a sus prolongaciones, los respectivos pies de las
+	  perpendiculares serán colineales si y sólo si el punto $P$ pertenece
+	  a la circunferencia circunscrita del triángulo.</p>
+
+	<p>La recta correspondiente es la
+	  <a href="https://es.wikipedia.org/wiki/Recta_de_Simson">línea de
+	    Simson</a>.</p>
+      </div>
+    </div>
+
+    <!--<div>
+	<h2>Círculos Excritos</h2>
+	
+      	<p>**TODO**</p>
+    </div>-->
+
+    <div id="footer">
+      Soporte moral y
+      técnico: <a href="mailto:cadadr@gmail.com">cadadr@gmail.com</a>.<br />
+      Última modificación: 21 de octubre de 2021.
+    </div>
+  </body>
+</html>
