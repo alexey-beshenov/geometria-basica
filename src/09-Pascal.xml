@@ -8,7 +8,9 @@
 
   <answer>    
     <p>Los seis puntos $A$, $B$, $C$, $D$, $E$, $F$ se escogen sobre una
-    circunferencia (o en general elipse, o parábola u hipérbola).</p>
+    circunferencia (o en general elipse;
+    o <a href="https://www.geogebra.org/geometry/eap8avq2">parábola</a>
+    u <a href="https://www.geogebra.org/geometry/jzah28uf">hipérbola</a>).</p>
 
     <p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Pascal">teorema
     de Pascal</a> afirma que los puntos de intersección $G$, $H$, $K$
