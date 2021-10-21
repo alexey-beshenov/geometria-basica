@@ -31,7 +31,7 @@ def xml_to_str(file):
 
     result += f"<h2>{title}</h2>\n"
     result += f'<div class="statement">\n{statement}\n'
-    result += f'<div class="geogebra-iframe"><iframe src="https://www.geogebra.org/geometry/{geogebra}?embed" width="600" height="480" allowfullscreen></iframe></div>'
+    result += f'<div class="geogebra-iframe"><iframe src="https://www.geogebra.org/geometry/{geogebra}?embed" width="600" height="500" allowfullscreen></iframe></div>'
     result += "</div>\n"
     result += (
         f'<div class="answer"><div class="hidden">\n{answer}\n</div></div>\n'
