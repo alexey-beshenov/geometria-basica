@@ -41,6 +41,31 @@ a.more-link {
 
 /* ------------------------------------------------------------ */
 
+nav>span {
+    color: #aaa;
+}
+
+nav>a, nav>span {
+    display: inline-block;
+    min-width: 1.5rem;
+    text-align: center;
+    padding: 0.25rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+}
+
+nav>a {
+    background: #666;
+}
+
+nav>a:link,
+nav>a:visited {
+    color: #fff;
+    border: none;
+}
+
+/* ------------------------------------------------------------ */
+
 .geogebra-iframe>iframe {
     aspect-ratio: 6 / 5;
     border-radius: 4px;
@@ -90,7 +115,7 @@ body {
 	column-gap: 2rem;
 	grid-template-columns: 2fr 1fr;
     }
-    h1, #intro, h2, #footer {
+    h1, #intro, nav, #toc, h2, #footer {
 	grid-column: 1 / -1;
     }
     .statement {
