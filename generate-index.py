@@ -1,6 +1,11 @@
 import xml.dom.minidom as minidom
-from bs4 import BeautifulSoup
 from glob import glob
+
+
+# from bs4 import BeautifulSoup
+
+# def prettify_html(s):
+#     return BeautifulSoup(s, "html.parser").prettify()
 
 
 def children_to_str(elem):
@@ -35,10 +40,6 @@ def xml_to_str(file):
     return result
 
 
-def prettify_html(s):
-    return BeautifulSoup(s, "html.parser").prettify()
-
-
 HEADER = "template/header.html"
 FOOTER = "template/footer.html"
 
@@ -57,4 +58,4 @@ if __name__ == "__main__":
     result += [line for line in open(FOOTER)]
 
     with open(OUT_FILE, "w") as ofile:
-        print(prettify_html("".join(result)), file=ofile, end="")
+        print("".join(result), file=ofile, end="")
