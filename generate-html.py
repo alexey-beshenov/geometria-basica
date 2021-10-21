@@ -78,7 +78,8 @@ def toc_str(n):
         else:
             return f'<span>{i}</span>'
 
-    links = map(num_to_href, range(0,12))
+    # **FIXME** MAGICK NUNBER
+    links = map(num_to_href, range(0,13))
     return '<nav>' + " ".join(links) + "</nav>"
 
 
