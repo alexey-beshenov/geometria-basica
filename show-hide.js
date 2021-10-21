@@ -29,7 +29,7 @@ function showLess(id) {
     a.setAttribute("href", "javascript:showMore(\""+id+"\")");
 }
 
-function init() {
+document.addEventListener("DOMContentLoaded", function() {
     const divs = document.getElementsByTagName("div");
     let j = 0;
     for (i = 0; i < divs.length; i++) {
@@ -39,4 +39,4 @@ function init() {
 	    addMoreLink(divs[i]);
 	}
     }
-}
+});
