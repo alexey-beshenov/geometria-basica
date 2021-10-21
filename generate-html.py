@@ -64,20 +64,26 @@ def get_item_num(name):
     return int(basename[0:2])
 
 
+def num_to_page(n):
+    if n == 0:
+        return "index.html"
+    else:
+        return f"{n:02}.html"
+
+
 def toc_str(n):
     def num_to_href(i):
         if i != n:
-            return f'<a href="{i:02}.html">{i:02}</a>'
+            return f'<a href="{num_to_page(i)}">{i}</a>'
         else:
-            return f'<span>{i:02}</span>'
+            return f'<span>{i}</span>'
 
-    links = map(num_to_href, range(1,12))
-
+    links = map(num_to_href, range(0,12))
     return '<nav>' + " ".join(links) + "</nav>"
 
 
 def write_html(xml_file_name, n):
-    output_file_name = f"{n:02}.html"
+    output_file_name = num_to_page(n)
 
     with open(output_file_name, "w") as output_file:
         print_file(HEADER, output_file)
@@ -87,7 +93,7 @@ def write_html(xml_file_name, n):
 
 
 def write_index(xml_files):
-    output_file_name = f"index.html"
+    output_file_name = num_to_page(0)
 
     with open(output_file_name, "w") as output_file:
         print_file(HEADER, output_file)
@@ -99,7 +105,7 @@ def write_index(xml_files):
             with open(_file, "r") as ifile:
                 document = minidom.parse(ifile)
                 title = get_field(document, "title")
-            print(f'<li><a href="{n:02}.html">{title}</a></li>', file=output_file)
+            print(f'<li><a href="{num_to_page(n)}">{title}</a></li>', file=output_file)
         print("</ul>", file=output_file)
 
         print_file(FOOTER, output_file)
