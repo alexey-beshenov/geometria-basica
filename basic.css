@@ -46,6 +46,7 @@ a.more-link {
     border-radius: 4px;
     border: solid #ccc 1px;
     width: 100%;
+    margin-bottom: 1rem
 }
 
 h1, h2 {

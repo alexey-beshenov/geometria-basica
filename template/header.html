@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Un repaso de geometría</title>
+
+    <link rel="stylesheet" href="basic.css" />
+    <script src="show-hide.js" type="text/javascript"></script>
+
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+		 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                     processEscapes: true },
+          "HTML-CSS": { availableFonts: ["TeX"],
+			linebreaks: { automatic: true } }
+      });
+    </script>
+  </head>
+
+  <body onload="init()">
+    <h1>Un repaso de geometría</h1>
+
+    <div id="intro">
+      <p>¡Bienvenido al <em>quiz</em> de geometría!</p>
+
+      <p>Trate de recordar los enunciados y pruebas de los teoremas
+	representados en los dibujos.</p>
+
+      <p>Haz click en la columna derecha para comprobar su respuesta.</p>
+    </div>

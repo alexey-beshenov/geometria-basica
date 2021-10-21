@@ -1,0 +1,22 @@
+<item>
+  <title>Área de triángulo</title>
+  <geogebra>rrfkyqtq</geogebra>
+
+  <statement>
+    <p>¿Cómo expresar el área de un triángulo en términos de...</p>
+    <ul>
+      <li>...lados $b$ y $c$ y el ángulo $\alpha$?</li>
+      <li>...lados $a$, $b$, $c$?</li>
+    </ul>
+  </statement>
+
+  <answer>
+    <p>En términos de $b$, $c$ y $\alpha$, se tiene
+    $$A = \frac{1}{2} bc \operatorname{sen}\alpha.$$</p>
+
+    <p>En términos de $a$, $b$, $c$, la respuesta viene dada por la
+    <a href="https://es.wikipedia.org/wiki/F%C3%B3rmula_de_Her%C3%B3n">fórmula de Heron</a>:
+    $$A = \sqrt{s\,(s-a)\,(s-b)\,(s-c)},$$
+    donde $s = \frac{a+b+c}{2}$ es el semiperímetro.</p>
+  </answer>
+</item>

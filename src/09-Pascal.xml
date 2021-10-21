@@ -1,0 +1,17 @@
+<item>
+  <title>Teorema de Pascal (Hexagrammum Mysticum)</title>
+  <geogebra>uzbzbnkx</geogebra>
+
+  <statement>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>    
+    <p>Los seis puntos $A$, $B$, $C$, $D$, $E$, $F$ se escogen sobre una
+    circunferencia (o en general elipse, o parábola u hipérbola).</p>
+
+    <p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Pascal">teorema
+    de Pascal</a> afirma que los puntos de intersección $G$, $H$, $K$
+    del dibujo son siempre colineales.</p>
+  </answer>
+</item>

@@ -1,0 +1,19 @@
+<item>
+  <title>Teorema de Ceva</title>
+  <geogebra>pbrjszyj</geogebra>
+
+  <statement>
+    <p>En el siguiente dibujo, $AA'$, $BB'$, $CC'$ pasan por el mismo punto
+    $O$.</p>
+
+    <p>¿Qué se puede decir sobre las razones
+    $BA'\colon A'C$, $CB'\colon B'A$, $AC'\colon C'B$?</p>
+  </statement>
+
+  <answer>
+    <p>Según el
+    <a href="https://es.wikipedia.org/wiki/Teorema_de_Ceva">teorema de Ceva</a>,
+    esto sucede si y solamente si
+    $$\frac{BA'}{A'C}\,\frac{CB'}{B'A}\,\frac{AC'}{C'B} = 1.$$</p>
+  </answer>
+</item>

@@ -1,0 +1,17 @@
+<item>
+  <title>Teorema del hexágono de Pappus</title>
+  <geogebra>n4h2je78</geogebra>
+
+  <statement>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>
+    <p>$(A,B,C)$ y $(A',B',C')$ son colineales.</p>
+
+    <p>El <a
+    href="https://es.wikipedia.org/wiki/Teorema_del_hex%C3%A1gono_de_Pappus">teorema
+    de Pappus</a> dice que las intersecciones $D$, $E$, $F$ son también
+    colineales.</p>
+  </answer>
+</item>

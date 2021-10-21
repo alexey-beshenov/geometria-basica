@@ -1,0 +1,12 @@
+<item>
+  <title>Área de un $n$-ágono regular</title>
+  <geogebra>myfjveys</geogebra>
+
+  <statement>
+    <p>Deduzca la fórmula para el área de un $n$-ágono regular de radio $r$.</p>
+  </statement>
+
+  <answer>      
+    <p>$$A = \frac{1}{2}\,r^2\,n\,\operatorname{sen} \left(\frac{2\pi}{n}\right).$$</p>
+  </answer>
+</item>

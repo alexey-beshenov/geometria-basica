@@ -1,0 +1,18 @@
+<item>
+  <title>Recta de Euler</title>
+  <geogebra>qbp76vun</geogebra>
+
+  <statement>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>
+    <p>La <a href="https://es.wikipedia.org/wiki/Recta_de_Euler">recta de
+    Euler</a> pasa por</p>
+    <ul>
+      <li>el ortocentro $H$ (intersección de las alturas),</li>
+      <li>el centroide $M$ (intersección de las medianas),</li>
+      <li>el circuncentro $O$ (intersección de las mediatrices).</li>
+    </ul>
+  </answer>
+</item>

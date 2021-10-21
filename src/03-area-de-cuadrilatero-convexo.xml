@@ -1,0 +1,14 @@
+<item>
+  <title>Área de un cuadrilátero convexo</title>
+  <geogebra>yfe7vtzq</geogebra>
+
+  <statement>
+    <p>Sea $ABCD$ un cuadrilátero convexo, $d_1 = |AC|$, $d_2 = |BD|$ son sus
+    dos diagonales, y $\alpha$ el ángulo entre ellos. Exprese el área en
+    términos de $d_1$, $d_2$, $\alpha$.</p>
+  </statement>
+
+  <answer>
+    <p>$$S = \frac{1}{2}\,d_1 d_2\operatorname{sen} (\alpha).$$</p>
+  </answer>
+</item>

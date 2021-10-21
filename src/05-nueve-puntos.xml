@@ -1,0 +1,21 @@
+<item>
+  <title>Circunferencia de los nueve puntos</title>
+  <geogebra>hn6gdect</geogebra>
+
+  <statement>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>
+    <p>La <a href="https://es.wikipedia.org/wiki/Circunferencia_de_los_nueve_puntos">circunferencia
+    de los nueve puntos</a> pasa por</p>
+    <ul>
+      <li>los puntos medios,</li>
+      <li>los pies de las alturas,</li>
+      <li>los puntos medios de los segmentos que unen los vértices con el
+      ortocentro.</li>
+    </ul>
+
+    <p>El centro de esta circunferencia también está en la recta de Euler.</p>
+  </answer>
+</item>

@@ -1,0 +1,19 @@
+<item>
+  <title>Teorema de Desargues</title>
+  <geogebra>f2nm93cx</geogebra>
+
+  <statement>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>
+    <p>Los triángulos $ABC$ y $A'B'C'$ son «proyectivos desde el punto $P$»: las
+    rectas $AA'$, $BB'$ y $CC'$ concurren en $P$.</p>
+
+    <p>Son también «proyectivos desde la recta $r$»: las intersecciones de los
+    lados $AB\cap A'B'$, $AC\cap A'C'$, $BC\cap B'C'$ están en $r$.</p>
+
+    <p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Desargues">teorema
+    de Desargues</a> dice que las dos condiciones son equivalentes.</p>
+  </answer>
+</item>

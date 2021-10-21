@@ -1,0 +1,18 @@
+<item>
+  <title>Línea de Simson</title>
+  <geogebra>fpqvppq5</geogebra>
+
+  <statement>
+      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
+  </statement>
+
+  <answer>
+    <p>Si desde un punto $P$ se trazan perpendiculares a los lados de un
+    triángulo o a sus prolongaciones, los respectivos pies de las
+    perpendiculares serán colineales si y sólo si el punto $P$ pertenece a la
+    circunferencia circunscrita del triángulo.</p>
+
+    <p>La recta correspondiente es la
+    <a href="https://es.wikipedia.org/wiki/Recta_de_Simson">línea de Simson</a>.</p>
+  </answer>
+</item>
