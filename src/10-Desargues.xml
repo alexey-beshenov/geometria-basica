@@ -7,13 +7,17 @@
   </statement>
 
   <answer>
-    <p>Los triángulos $ABC$ y $A'B'C'$ son «proyectivos desde el punto $P$»: las
-    rectas $AA'$, $BB'$ y $CC'$ concurren en $P$.</p>
-
-    <p>Son también «proyectivos desde la recta $r$»: las intersecciones de los
-    lados $AB\cap A'B'$, $AC\cap A'C'$, $BC\cap B'C'$ están en $r$.</p>
-
     <p>El <a href="https://es.wikipedia.org/wiki/Teorema_de_Desargues">teorema
-    de Desargues</a> dice que las dos condiciones son equivalentes.</p>
+    de Desargues</a> dice que las siguientes dos condiciones son
+    equivalentes para los triángulos $ABC$ y $A'B'C'$:</p>
+
+    <ol>
+      <li>$ABC$ y $A'B'C'$ son «proyectivos desde un punto $P$»:<br/>
+      las rectas $AA'$, $BB'$ y $CC'$ concurren en $P$.</li>
+
+      <li>$ABC$ y $A'B'C'$ son «proyectivos desde una recta $r$»:<br/>
+      las intersecciones de los lados $(AB, A'B')$, $(AC, A'C')$, $(BC, B'C')$
+      están en $r$.</li>
+    </ol>
   </answer>
 </item>
