@@ -99,14 +99,14 @@ def write_index(xml_files):
         print_file(HEADER, output_file)
         print(toc_str(0), file=output_file)
 
-        print('<ul id="toc">', file=output_file)
+        print('<ol id="toc">', file=output_file)
         for _file in xml_files:
             n = get_item_num(_file)
             with open(_file, "r") as ifile:
                 document = minidom.parse(ifile)
                 title = get_field(document, "title")
             print(f'<li><a href="{num_to_page(n)}">{title}</a></li>', file=output_file)
-        print("</ul>", file=output_file)
+        print("</ol>", file=output_file)
 
         print_file(FOOTER, output_file)
 
