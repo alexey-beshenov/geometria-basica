@@ -8,15 +8,22 @@ https://alexey-beshenov.github.io/geometria-basica/
 ## Files
 
 * `basic.css` : CSS style.
-* `generate-html.py` : script to generate HTML from XML
-  (run from the same directory).
+
+* `generate_html.py` : script to generate HTML from XML.
+  To be run from the same directory. Generates from each file
+  `xml/foo.xml` the corresponding `foo.html` in the root,
+  plus writes `index.html`.
+
 * `quizitem.py` : some extra Python code used by `generate-html.py`.
+
 * `show-hide.js` : basic script to show/hide blocks on the page.
 
 * `template/` : basic HTML templates.
+
 * `xml/` : source files.
 
-* `*.html` : all HTML files are automatically generated.
+* `*.html` : all HTML files in the root directory are automatically generated
+  from `xml/*.xml` and overwritten silently by `generate_html.py`.
 
 
 ## Contents
