@@ -6,7 +6,6 @@ from string import Template
 from quizitem import *
 
 # Some configuration:
-HTML_DIR = "html"
 TEMPLATE_DIR = "template"
 MAIN_TEMPLATE = f"{TEMPLATE_DIR}/main.html"
 ITEM_TEMPLATE = f"{TEMPLATE_DIR}/item.html"
@@ -84,7 +83,7 @@ if __name__ == "__main__":
             katex=katex, geogebra=geogebra, toc=toc, content=content
         )
 
-        html_file = f"{HTML_DIR}/{output_file_name(file)}"
+        html_file = output_file_name(file)
         print(f"Writing {html_file}")
         with open(html_file, "w") as output_file:
             print(result, file=output_file)
@@ -94,7 +93,7 @@ if __name__ == "__main__":
         katex=katex, geogebra="", toc=toc, content=full_toc
     )
 
-    index_file = f"{HTML_DIR}/index.html"
+    index_file = "index.html"
     print(f"Wrting {index_file}")
     with open(index_file, "w") as output_file:
         print(index, file=output_file)
