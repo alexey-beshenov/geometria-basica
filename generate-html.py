@@ -7,6 +7,7 @@ from string import Template
 from quizitem import *
 
 # Some configuration:
+TITLE = "Un repaso de geometría"
 TEMPLATE_DIR = "template"
 MAIN_TEMPLATE = f"{TEMPLATE_DIR}/main.html"
 ITEM_TEMPLATE = f"{TEMPLATE_DIR}/item.html"
@@ -77,6 +78,7 @@ def generate_html_files(files: list[str]) -> None:
         content: str = item_tmpl.substitute(dataclasses.asdict(item))
         toc: str = generate_toc(quiz_items, item)
         result: str = main_tmpl.substitute(
+            page_title=f"{item.title} ({TITLE})",
             katex=katex, geogebra=geogebra, toc=toc, content=content
         )
 
@@ -87,7 +89,7 @@ def generate_html_files(files: list[str]) -> None:
 
     full_toc: str = generate_full_toc(quiz_items)
     index: str = main_tmpl.substitute(
-        katex=katex, geogebra="", toc="", content=full_toc
+        page_title=TITLE, katex=katex, geogebra="", toc="", content=full_toc
     )
 
     index_file = "index.html"
