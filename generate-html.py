@@ -1,124 +1,100 @@
 import xml.dom.minidom as minidom
 from glob import glob
-import os.path
+import os
+from string import Template
+
+from quizitem import *
+
+# Some configuration:
+HTML_DIR = "html"
+TEMPLATE_DIR = "template"
+MAIN_TEMPLATE = f"{TEMPLATE_DIR}/main.html"
+ITEM_TEMPLATE = f"{TEMPLATE_DIR}/item.html"
+KATEX_CODE = f"{TEMPLATE_DIR}/katex.html"
+GEOGEBRA_TEMPLATE = f"{TEMPLATE_DIR}/geogebra-app.html"
+XML_DIR = "xml"
 
 
-# from bs4 import BeautifulSoup
-
-# def prettify_html(s):
-#     return BeautifulSoup(s, "html.parser").prettify()
-
-
-def children_to_str(elem):
-    return "".join([c.toxml() for c in elem.childNodes])
+def read_template(file_name: str) -> Template:
+    with open(file_name, "r") as f:
+        return Template(f.read())
 
 
-def get_field(document, field_name):
-    elems = document.getElementsByTagName(field_name)
-    assert len(elems) == 1
-    return children_to_str(elems[0])
+def get_xml_files() -> list[str]:
+    return sorted([f for f in glob(f"{XML_DIR}/*.xml")])
 
 
-def xml_to_str(file_name):
-    with open(file_name, "r") as ifile:
-        document = minidom.parse(ifile)
-
-    title = get_field(document, "title")
-    geogebra = get_field(document, "geogebra")
-    statement = get_field(document, "statement")
-    answer = get_field(document, "answer")
-
-    result = ""
-
-    result += f"<h2>{title}</h2>\n"
-    result += f'<div class="statement">\n{statement}\n'
-    result += f'<div class="geogebra-iframe"><iframe src="https://www.geogebra.org/geometry/{geogebra}?embed" width="600" height="500" allowfullscreen></iframe></div>'
-    result += "</div>\n"
-    result += (
-        f'<div class="answer"><div class="hidden">\n{answer}\n</div></div>\n'
-    )
-
-    return result
-
-
-def print_file(input_file_name, output_file):
-    with open(input_file_name, "r") as input_file:
-        for line in input_file:
-            print(line, file=output_file, end="")
-
-
-HEADER = "template/header.html"
-FOOTER = "template/footer.html"
-
-
-def valid_input_file(name):
-    return all((str.isdigit(name[0]), str.isdigit(name[1]), name[2] == '-'))
-
-
-def get_item_num(name):
+def output_file_name(xml_file_name: str) -> str:
+    """Transforms xml/foo.xml --> foo.html"""
+    name = os.path.splitext(xml_file_name)[0]
     basename = os.path.basename(name)
-
-    if not valid_input_file(basename):
-        raise Exception(f"Wrong input file name: {basename}")
-
-    return int(basename[0:2])
+    return f"{basename}.html"
 
 
-def num_to_page(n):
-    if n == 0:
-        return "index.html"
-    else:
-        return f"{n:02}.html"
+def generate_toc(
+    input_items: list[tuple[str, QuizItem]], current_item: QuizItem
+) -> str:
+    result: list[str] = []
 
+    result.append(f'<a href="./">0</a>')
 
-def toc_str(n):
-    def num_to_href(i):
-        if i != n:
-            return f'<a href="{num_to_page(i)}">{i}</a>'
+    for n, input_item in enumerate(input_items):
+        file, item = input_item
+        href = output_file_name(file)
+        if current_item is not item:
+            result.append(f'<a href="{href}" title="{item.title}">{n+1}</a>')
         else:
-            return f'<span>{i}</span>'
+            result.append(f"<span>{n+1}</span>")
 
-    # **FIXME** MAGICK NUNBER
-    links = map(num_to_href, range(0,13))
-    return '<nav>' + " ".join(links) + "</nav>"
+    return "<nav>" + " ".join(result) + "</nav>"
 
 
-def write_html(xml_file_name, n):
-    output_file_name = num_to_page(n)
+def generate_full_toc(input_items: list[tuple[str, QuizItem]]) -> str:
+    result: list[str] = []
 
-    with open(output_file_name, "w") as output_file:
-        print_file(HEADER, output_file)
-        print(toc_str(n), file=output_file)
-        print(xml_to_str(xml_file_name), file=output_file)
-        print_file(FOOTER, output_file)
+    for file, item in input_items:
+        href = output_file_name(file)
+        result.append(f'<li><a href="{href}">{item.title}</a></li>')
 
-
-def write_index(xml_files):
-    output_file_name = num_to_page(0)
-
-    with open(output_file_name, "w") as output_file:
-        print_file(HEADER, output_file)
-        print(toc_str(0), file=output_file)
-
-        print('<ol id="toc">', file=output_file)
-        for _file in xml_files:
-            n = get_item_num(_file)
-            with open(_file, "r") as ifile:
-                document = minidom.parse(ifile)
-                title = get_field(document, "title")
-            print(f'<li><a href="{num_to_page(n)}">{title}</a></li>', file=output_file)
-        print("</ol>", file=output_file)
-
-        print_file(FOOTER, output_file)
+    return "<ol>" + "\n".join(result) + "</ol>"
 
 
 if __name__ == "__main__":
-    xml_files = glob("src/*.xml")
-    xml_files.sort()
+    # Read all the templates
+    print(f"Reading {MAIN_TEMPLATE} ...")
+    main_tmpl: Template = read_template(MAIN_TEMPLATE)
+    print(f"Reading {ITEM_TEMPLATE} ...")
+    item_tmpl: Template = read_template(ITEM_TEMPLATE)
+    print(f"Reading {GEOGEBRA_TEMPLATE} ...")
+    geogebra_tmpl: Template = read_template(GEOGEBRA_TEMPLATE)
 
-    toc = { x : get_item_num(x) for x in xml_files }
+    print(f"Reading {KATEX_CODE} ...")
+    with open(KATEX_CODE, "r") as f:
+        katex: str = f.read()
 
-    for ifile,n in toc.items():
-        write_html(ifile,n)
+    quiz_items: list[tuple[str, QuizItem]] = [
+        (f, get_item_from_xml(f)) for f in get_xml_files()
+    ]
 
-    write_index(xml_files)
+    for file, item in quiz_items:
+        geogebra: str = geogebra_tmpl.substitute(material_id=item.geogebra)
+        content: str = item_tmpl.substitute(dataclasses.asdict(item))
+        toc: str = generate_toc(quiz_items, item)
+        result: str = main_tmpl.substitute(
+            katex=katex, geogebra=geogebra, toc=toc, content=content
+        )
+
+        html_file = f"{HTML_DIR}/{output_file_name(file)}"
+        print(f"Writing {html_file}")
+        with open(html_file, "w") as output_file:
+            print(result, file=output_file)
+
+    full_toc: str = generate_full_toc(quiz_items)
+    index: str = main_tmpl.substitute(
+        katex=katex, geogebra="", toc=toc, content=full_toc
+    )
+
+    index_file = f"{HTML_DIR}/index.html"
+    print(f"Wrting {index_file}")
+    with open(index_file, "w") as output_file:
+        print(index, file=output_file)

@@ -1,0 +1,17 @@
+    <!-- GeoGebra stuff -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var params = {
+          "appName": "geometry",
+          "width": 600,
+          "height": 480,
+          "showToolBar": true,
+          "showAlgebraInput": false,
+          "showMenuBar": false,
+          "material_id": "$material_id"
+      };
+      var ggbApplet = new GGBApplet(params, true);
+      window.addEventListener("load", function() {
+          ggbApplet.inject('ggb-element');
+      });
+    </script>

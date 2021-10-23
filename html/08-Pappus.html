@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="basic.css" />
     <script src="show-hide.js" type="text/javascript"></script>
 
+        <!-- KaTeX stuff -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
@@ -23,23 +24,29 @@
           // • rendering keys, e.g.:
           throwOnError : false
         });
+
         init();
     });
     </script>
 
-    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript"> -->
-    <!--   MathJax.Hub.Config({ -->
-    <!--       HTML: ["input/TeX","output/HTML-CSS"], -->
-    <!--       TeX: { extensions: ["AMSmath.js","AMSsymbols.js"] }, -->
-    <!--       extensions: ["tex2jax.js"], -->
-    <!--       jax: ["input/TeX","output/HTML-CSS"], -->
-    <!--       tex2jax: { inlineMath: [ ['$','$'] ], -->
-    <!--                  displayMath: [ ['$$','$$'] ], -->
-    <!--                  processEscapes: true }, -->
-    <!--       "HTML-CSS": { availableFonts: ["TeX"], -->
-    <!-- 			linebreaks: { automatic: true } } -->
-    <!--   }); -->
-    <!-- </script> -->
+        <!-- GeoGebra stuff -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var params = {
+          "appName": "geometry",
+          "width": 600,
+          "height": 480,
+          "showToolBar": true,
+          "showAlgebraInput": false,
+          "showMenuBar": false,
+          "material_id": "n4h2je78"
+      };
+      var ggbApplet = new GGBApplet(params, true);
+      window.addEventListener("load", function() {
+          ggbApplet.inject('ggb-element');
+      });
+    </script>
+
   </head>
 
   <body>
@@ -53,31 +60,37 @@
 
       <p>Haz click sobre «ver la respuesta» para ver la respuesta correcta.</p>
     </div>
-<nav><a href="index.html">0</a> <a href="01.html">1</a> <a href="02.html">2</a> <a href="03.html">3</a> <a href="04.html">4</a> <a href="05.html">5</a> <a href="06.html">6</a> <a href="07.html">7</a> <a href="08.html">8</a> <a href="09.html">9</a> <a href="10.html">10</a> <span>11</span> <a href="12.html">12</a></nav>
-<h2>Línea de Simson</h2>
+
+    <nav><a href="./">0</a> <a href="01-area-de-triangulo.html" title="Área de triángulo">1</a> <a href="02-area-de-n-agono.html" title="Área de un $n$-ágono regular">2</a> <a href="03-area-de-cuadrilatero-convexo.html" title="Área de un cuadrilátero convexo">3</a> <a href="04-recta-de-Euler.html" title="Recta de Euler">4</a> <a href="05-nueve-puntos.html" title="Circunferencia de los nueve puntos">5</a> <a href="06-Ceva.html" title="Teorema de Ceva">6</a> <a href="07-Menelao.html" title="Teorema de Menelao">7</a> <span>8</span> <a href="09-Pascal.html" title="Teorema de Pascal (Hexagrammum Mysticum)">9</a> <a href="10-Desargues.html" title="Teorema de Desargues">10</a> <a href="11-Simson.html" title="Línea de Simson">11</a> <a href="12-excirculos.html" title="Excírculos">12</a></nav>
+
+    <h2>Teorema del hexágono de Pappus</h2>
+
 <div class="statement">
-
-      <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
   
-<div class="geogebra-iframe"><iframe src="https://www.geogebra.org/geometry/fpqvppq5?embed" width="600" height="500" allowfullscreen></iframe></div></div>
-<div class="answer"><div class="hidden">
-
-    <p>Si desde un punto $P$ se trazan perpendiculares a los lados de un
-    triángulo o a sus prolongaciones, los respectivos pies de las
-    perpendiculares serán colineales si y sólo si el punto $P$ pertenece a la
-    circunferencia circunscrita del triángulo.</p>
-
-    <p>La recta correspondiente es la
-    <a href="https://es.wikipedia.org/wiki/Recta_de_Simson">línea de Simson</a>.</p>
+    <p>¿Qué resultado se puede observar en el siguiente dibujo?</p>
   
-</div></div>
+  <div id="ggb-element"></div>
+</div>
+<div class="answer">
+  <div class="hidden">
+    
+    <p>$(A,B,C)$ y $(A',B',C')$ son colineales.</p>
+
+    <p>El <a href="https://es.wikipedia.org/wiki/Teorema_del_hex%C3%A1gono_de_Pappus">teorema
+    de Pappus</a> dice que las intersecciones $D$, $E$, $F$ son también
+    colineales.</p>
+  
+  </div>
+</div>
+
 
     <div id="footer">
       Soporte moral y técnico:
       <a href="mailto:cadadr@gmail.com">cadadr@gmail.com</a><br/>
       Código fuente:
       <a href="https://github.com/alexey-beshenov/geometria-basica">github.com/alexey-beshenov/geometria-basica</a><br/>
-      Última modificación: 21 de octubre de 2021.
+      Última modificación: 21 de octubre de 2021
     </div>
   </body>
 </html>
+

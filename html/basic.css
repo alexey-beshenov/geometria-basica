@@ -70,7 +70,7 @@ nav>a:visited {
 
 /* ------------------------------------------------------------ */
 
-.geogebra-iframe>iframe {
+#ggb-element {
     aspect-ratio: 6 / 5;
     border-radius: 4px;
     border: solid #ccc 1px;
