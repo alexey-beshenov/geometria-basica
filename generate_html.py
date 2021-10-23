@@ -1,4 +1,3 @@
-import xml.dom.minidom as minidom
 from glob import glob
 import os
 import dataclasses
@@ -98,6 +97,9 @@ def generate_html_files(files: list[str]) -> None:
         print(index, file=output_file)
 
 
+def get_all_xml_files() -> list[str]:
+    return sorted(glob(f"{XML_DIR}/*.xml"))
+
+
 if __name__ == "__main__":
-    xml_files: list[str] = sorted(glob(f"{XML_DIR}/*.xml"))
-    generate_html_files(xml_files)
+    generate_html_files(get_all_xml_files())
