@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     full_toc: str = generate_full_toc(quiz_items)
     index: str = main_tmpl.substitute(
-        katex=katex, geogebra="", toc=toc, content=full_toc
+        katex=katex, geogebra="", toc="", content=full_toc
     )
 
     index_file = "index.html"
