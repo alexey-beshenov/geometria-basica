@@ -1,6 +1,7 @@
 import xml.dom.minidom as minidom
 from glob import glob
 import os
+import dataclasses
 from string import Template
 
 from quizitem import *
