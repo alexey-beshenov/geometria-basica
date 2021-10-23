@@ -14,15 +14,6 @@ GEOGEBRA_TEMPLATE = f"{TEMPLATE_DIR}/geogebra-app.html"
 XML_DIR = "xml"
 
 
-def read_template(file_name: str) -> Template:
-    with open(file_name, "r") as f:
-        return Template(f.read())
-
-
-def get_xml_files() -> list[str]:
-    return sorted([f for f in glob(f"{XML_DIR}/*.xml")])
-
-
 def output_file_name(xml_file_name: str) -> str:
     """Transforms xml/foo.xml --> foo.html"""
     name = os.path.splitext(xml_file_name)[0]
@@ -33,9 +24,7 @@ def output_file_name(xml_file_name: str) -> str:
 def generate_toc(
     input_items: list[tuple[str, QuizItem]], current_item: QuizItem
 ) -> str:
-    result: list[str] = []
-
-    result.append(f'<a href="./">0</a>')
+    result: list[str] = ['<a href="./">0</a>']
 
     for n, input_item in enumerate(input_items):
         file, item = input_item
@@ -58,7 +47,14 @@ def generate_full_toc(input_items: list[tuple[str, QuizItem]]) -> str:
     return "<ol>" + "\n".join(result) + "</ol>"
 
 
-if __name__ == "__main__":
+def read_template(file_name: str) -> Template:
+    with open(file_name, "r") as f:
+        return Template(f.read())
+
+
+def generate_html_files(files: list[str]) -> None:
+    """Generates and writes .html files from given .xml files"""
+
     # Read all the templates
     print(f"Reading {MAIN_TEMPLATE} ...")
     main_tmpl: Template = read_template(MAIN_TEMPLATE)
@@ -72,7 +68,7 @@ if __name__ == "__main__":
         katex: str = f.read()
 
     quiz_items: list[tuple[str, QuizItem]] = [
-        (f, get_item_from_xml(f)) for f in get_xml_files()
+        (f, get_item_from_xml(f)) for f in files
     ]
 
     for file, item in quiz_items:
@@ -83,7 +79,7 @@ if __name__ == "__main__":
             katex=katex, geogebra=geogebra, toc=toc, content=content
         )
 
-        html_file = output_file_name(file)
+        html_file: str = output_file_name(file)
         print(f"Writing {html_file}")
         with open(html_file, "w") as output_file:
             print(result, file=output_file)
@@ -97,3 +93,8 @@ if __name__ == "__main__":
     print(f"Wrting {index_file}")
     with open(index_file, "w") as output_file:
         print(index, file=output_file)
+
+
+if __name__ == "__main__":
+    xml_files: list[str] = sorted(glob(f"{XML_DIR}/*.xml"))
+    generate_html_files(xml_files)
