@@ -7,3 +7,4 @@ jobs:
       - name: Generate HTML
         run: |
           python3 generate-html.py
+          ls -1
